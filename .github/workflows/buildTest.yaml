@@ -1,0 +1,91 @@
+name: Reutilizável - Build & Test
+
+# Este arquivo NÃO roda sozinho. Ele é chamado pelos outros workflows
+# através de `uses: ./.github/workflows/_build-test.yaml`.
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        description: "Versão do JDK"
+        type: string
+        default: "21"
+      run-unit-tests:
+        description: "Se true, roda também os testes unitários (mvn test)"
+        type: boolean
+        default: true
+      run-integration-tests:
+        description: "Se true, roda também os testes de integração (mvn verify)"
+        type: boolean
+        default: false
+      run-docker-build:
+        description: "Se true, valida o build da imagem Docker"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Testes unitários
+    if: inputs.run-unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Contexto da execução
+        run: |
+          echo "Evento......: ${{ github.event_name }}"
+          echo "Repositório.: ${{ github.repository }}"
+          echo "Ref.........: ${{ github.ref }}"
+          echo "Base (PR)...: ${{ github.base_ref }}"
+          echo "Head (PR)...: ${{ github.head_ref }}"
+
+      - name: Baixar o código
+        uses: actions/checkout@v6
+
+      - name: Configurar JDK ${{ inputs.java-version }}
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: temurin
+          cache: maven
+
+      - name: Executar testes unitários
+        run: ./mvnw -B -ntp clean test
+
+  integration-tests:
+    name: Testes de integração
+    if: inputs.run-integration-tests
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v6
+        with:
+          # Sonar precisa do histórico completo para calcular blame/new code.
+          # Se não for usar Sonar, pode remover estas 2 linhas.
+          fetch-depth: 0
+
+      - name: Configurar JDK ${{ inputs.java-version }}
+        uses: actions/setup-java@v5
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: temurin
+          cache: maven
+
+      # `verify` roda o ciclo completo: surefire (unitários) + failsafe (*IT.java).
+      - name: Executar testes de integração
+        run: ./mvnw -B -ntp verify
+
+  build-image:
+    name: Build da imagem Docker
+    if: inputs.run-docker-build
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v6
+
+      # Aqui só validamos que a imagem constrói. Publicação no registry
+      # fica nos workflows de homolog/main, após o merge.
+      - name: Build da imagem
+        run: docker build -t anjos-app:${{ github.sha }} .
