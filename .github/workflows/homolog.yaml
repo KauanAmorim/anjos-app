@@ -29,6 +29,7 @@ jobs:
     name: Validação
     uses: ./.github/workflows/_build-test.yaml
     with:
+      run-unit-tests: true
       run-integration-tests: true
       run-docker-build: true
 

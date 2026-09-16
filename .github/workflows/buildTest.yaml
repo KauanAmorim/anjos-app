@@ -9,6 +9,10 @@ on:
         description: "Versão do JDK"
         type: string
         default: "21"
+      run-unit-tests:
+        description: "Se true, roda também os testes unitários (mvn test)"
+        type: boolean
+        default: true
       run-integration-tests:
         description: "Se true, roda também os testes de integração (mvn verify)"
         type: boolean
@@ -24,6 +28,7 @@ permissions:
 jobs:
   unit-tests:
     name: Testes unitários
+    if: inputs.run-unit-tests
     runs-on: ubuntu-latest
     steps:
       - name: Contexto da execução
@@ -70,12 +75,6 @@ jobs:
       # `verify` roda o ciclo completo: surefire (unitários) + failsafe (*IT.java).
       - name: Executar testes de integração
         run: ./mvnw -B -ntp verify
-
-      # Descomente quando configurar o SonarQube / SonarCloud.
-      # - name: Análise estática (code smells)
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #   run: ./mvnw -B -ntp sonar:sonar -Dsonar.projectKey=anjos-app
 
   build-image:
     name: Build da imagem Docker
