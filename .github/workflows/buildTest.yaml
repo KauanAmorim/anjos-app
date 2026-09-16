@@ -1,7 +1,7 @@
 name: Reutilizável - Build & Test
 
 # Este arquivo NÃO roda sozinho. Ele é chamado pelos outros workflows
-# através de `uses: ./buildTest.yaml`.
+# através de `uses: ./.github/workflows/buildTest.yaml`.
 on:
   workflow_call:
     inputs:
