@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# o Git roda o hook com o cwd na raiz do repo, então guardamos o caminho
+# absoluto do arquivo de mensagem ANTES de entrar na pasta git-hooks
+MSG_FILE="$(pwd)/$1"
+cd git-hooks || exit 1
+npx --no -- commitlint --edit "$MSG_FILE"

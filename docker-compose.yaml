@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  anjos-app:
+    build: .
+    container_name: anjos-app
+    ports:
+      - "8080:8080"
+    environment:
+      # Sobrescreve o localhost do application.properties para usar a network interna do Docker
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/anjos-db
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: anjos-db
+    environment:
+      POSTGRES_DB: anjos-db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:
