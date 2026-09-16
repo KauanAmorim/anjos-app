@@ -27,7 +27,7 @@ permissions:
 jobs:
   validar:
     name: Validação
-    uses: ./buildTest.yaml
+    uses: ./.github/workflows/buildTest.yaml
     with:
       run-unit-tests: false
       run-integration-tests: false
