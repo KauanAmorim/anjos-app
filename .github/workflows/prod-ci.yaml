@@ -1,0 +1,22 @@
+name: CI - Main
+run-name: "Validação Produção · @${{ github.actor }}"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ci-main-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validação
+    uses: ./.github/workflows/buildTest.yaml
+    with:
+      run-integration-tests: true
+      run-docker-build: true
