@@ -1,4 +1,4 @@
-name: CI - Homolog
+name: CD - Homolog
 run-name: "Deploy Homolog · @${{ github.actor }}"
 
 on:
@@ -7,7 +7,7 @@ on:
       - homolog
 
 concurrency:
-  group: homolog-ci-${{ github.event.pull_request.number || github.ref }}
+  group: homolog-cd-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:

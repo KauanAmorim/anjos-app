@@ -1,4 +1,4 @@
-name: CI - Main
+name: CD - Main
 run-name: "Deploy Produção · @${{ github.actor }}"
 
 on:
@@ -7,7 +7,7 @@ on:
       - main
 
 concurrency:
-  group: ci-main-${{ github.event.pull_request.number || github.ref }}
+  group: cd-main-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: false
 
 permissions:
