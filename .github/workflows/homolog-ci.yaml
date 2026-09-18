@@ -7,7 +7,7 @@ on:
       - homolog
 
 concurrency:
-  group: homolog-ci-${{ github.event.pull_request.number || github.ref }}
+  group: ci-homolog-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
