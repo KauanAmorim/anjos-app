@@ -5,20 +5,12 @@ run-name: >-
       || format('Merge em homolog · @{0}', github.actor) }}
 
 on:
-  # 1) Abertura/atualização de PR cuja BASE é homolog (vindo de feat/*, fix/* ...)
-  pull_request:
-    branches:
-      - homolog
-  # 2) Push direto em homolog — na prática, o merge do PR acima.
   push:
     branches:
       - homolog
 
-# Os dois gatilhos acima nunca disparam ao mesmo tempo:
-# o PR vem de uma branch de feature, e o push em homolog só ocorre no merge.
-
 concurrency:
-  group: ci-homolog-${{ github.event.pull_request.number || github.ref }}
+  group: homolog-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -29,13 +21,12 @@ jobs:
     name: Validação
     uses: ./.github/workflows/buildTest.yaml
     with:
-      run-integration-tests: false
+      run-integration-tests: true
       run-docker-build: true
 
   deploy-homolog:
     name: Deploy para homologação
     needs: validar
-    # Só roda DEPOIS do merge, nunca na validação do PR.
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: homolog

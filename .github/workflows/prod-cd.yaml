@@ -5,19 +5,12 @@ run-name: >-
       || format('Release em main · @{0}', github.actor) }}
 
 on:
-  # 1) PR cuja BASE é main (normalmente vindo de homolog, ou de hotfix/*)
-  pull_request:
-    branches:
-      - main
-  # 2) Push direto em main — o merge do PR acima.
   push:
     branches:
       - main
 
 concurrency:
   group: ci-main-${{ github.event.pull_request.number || github.ref }}
-  # Em main, não cancelamos execuções em andamento: um deploy pela metade
-  # é pior do que gastar alguns minutos a mais.
   cancel-in-progress: false
 
 permissions:

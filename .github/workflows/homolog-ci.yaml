@@ -1,0 +1,25 @@
+name: CI - Homolog
+run-name: >-
+  ${{ github.event_name == 'pull_request'
+      && format('PR #{0}: {1} → homolog', github.event.number, github.head_ref)
+      || format('Merge em homolog · @{0}', github.actor) }}
+
+on:
+  pull_request:
+    branches:
+      - homolog
+
+concurrency:
+  group: homolog-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validação
+    uses: ./.github/workflows/buildTest.yaml
+    with:
+      run-integration-tests: true
+      run-docker-build: true
