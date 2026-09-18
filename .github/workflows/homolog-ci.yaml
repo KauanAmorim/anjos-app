@@ -1,0 +1,22 @@
+name: CI - Homolog
+run-name: "Validação Homolog · @${{ github.actor }}"
+
+on:
+  pull_request:
+    branches:
+      - homolog
+
+concurrency:
+  group: ci-homolog-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validação
+    uses: ./.github/workflows/buildTest.yaml
+    with:
+      run-integration-tests: true
+      run-docker-build: true

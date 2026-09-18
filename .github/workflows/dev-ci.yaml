@@ -1,18 +1,14 @@
 name: CI - Branch de desenvolvimento
 run-name: "CI dev · ${{ github.ref_name }} · @${{ github.actor }}"
 
-# Dispara em QUALQUER branch, menos main e homolog.
-# Cobre feat/*, fix/*, hotfix/*, chore/*, refactor/* etc. sem precisar listar.
 on:
   push:
     branches-ignore:
       - main
       - homolog
 
-# Se você empurrar 3 commits seguidos, cancela as execuções antigas
-# e mantém só a mais recente. Economiza minutos e evita fila.
 concurrency:
-  group: ci-dev-${{ github.ref }}
+  group: dev-ci-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:

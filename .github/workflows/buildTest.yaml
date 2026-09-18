@@ -1,7 +1,5 @@
 name: Reutilizável - Build & Test
 
-# Este arquivo NÃO roda sozinho. Ele é chamado pelos outros workflows
-# através de `uses: ./.github/workflows/buildTest.yaml`.
 on:
   workflow_call:
     inputs:
@@ -56,8 +54,6 @@ jobs:
       - name: Baixar o código
         uses: actions/checkout@v6
         with:
-          # Sonar precisa do histórico completo para calcular blame/new code.
-          # Se não for usar Sonar, pode remover estas 2 linhas.
           fetch-depth: 0
 
       - name: Configurar JDK ${{ inputs.java-version }}
@@ -67,7 +63,6 @@ jobs:
           distribution: temurin
           cache: maven
 
-      # `verify` roda o ciclo completo: surefire (unitários) + failsafe (*IT.java).
       - name: Executar testes de integração
         run: ./mvnw -B -ntp verify
 
@@ -80,7 +75,5 @@ jobs:
       - name: Baixar o código
         uses: actions/checkout@v6
 
-      # Aqui só validamos que a imagem constrói. Publicação no registry
-      # fica nos workflows de homolog/main, após o merge.
       - name: Build da imagem
         run: docker build -t anjos-app:${{ github.sha }} .
