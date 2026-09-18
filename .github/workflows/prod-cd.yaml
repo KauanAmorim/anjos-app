@@ -37,6 +37,7 @@ jobs:
         uses: googleapis/release-please-action@v5
         with:
           release-type: maven
+          target-branch: main
 
   publish-image:
     name: Build e push da imagem versionada
