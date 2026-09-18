@@ -1,8 +1,5 @@
 name: CI - Homolog
-run-name: >-
-  ${{ github.event_name == 'pull_request'
-      && format('PR #{0}: {1} → homolog', github.event.number, github.head_ref)
-      || format('Merge em homolog · @{0}', github.actor) }}
+run-name: "Validação Homolog · @${{ github.actor }}"
 
 on:
   pull_request:

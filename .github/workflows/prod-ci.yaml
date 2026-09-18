@@ -1,8 +1,5 @@
 name: CI - Main
-run-name: >-
-  ${{ github.event_name == 'pull_request'
-      && format('PR #{0}: {1} → main', github.event.number, github.head_ref)
-      || format('Release em main · @{0}', github.actor) }}
+run-name: "Validação Produção · @${{ github.actor }}"
 
 on:
   pull_request:

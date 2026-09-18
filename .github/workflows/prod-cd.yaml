@@ -1,8 +1,5 @@
 name: CI - Main
-run-name: >-
-  ${{ github.event_name == 'pull_request'
-      && format('PR #{0}: {1} → main', github.event.number, github.head_ref)
-      || format('Release em main · @{0}', github.actor) }}
+run-name: "Deploy Produção · @${{ github.actor }}"
 
 on:
   push:
@@ -21,13 +18,12 @@ jobs:
     name: Validação
     uses: ./.github/workflows/buildTest.yaml
     with:
-      run-integration-tests: false
+      run-integration-tests: true
       run-docker-build: true
 
   deploy-prod:
     name: Deploy para produção
     needs: validar
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment: production
     steps:
