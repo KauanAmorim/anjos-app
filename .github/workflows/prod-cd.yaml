@@ -37,6 +37,7 @@ jobs:
         uses: googleapis/release-please-action@v5
         with:
           release-type: maven
+          target-branch: main
 
   publish-image:
     name: Build e push da imagem versionada
@@ -79,7 +80,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.CR_PAT }}
 
       - name: Build e push da imagem
         id: push
