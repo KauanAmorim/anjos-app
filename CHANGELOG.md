@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/KauanAmorim/anjos-app/compare/v1.0.0...v1.0.1) (2026-09-19)
+
+
+### Bug Fixes
+
+* **chore:** retirando comentário ([aa92948](https://github.com/KauanAmorim/anjos-app/commit/aa92948fef9094a479e1eaec032ae518aedaff51))
+* **chore:** retirando comentário ([1958438](https://github.com/KauanAmorim/anjos-app/commit/19584380e6f9140c09ea93aa5df6508d43a75038))
+
 ## 1.0.0 (2026-09-18)
 
 
