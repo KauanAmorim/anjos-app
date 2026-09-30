@@ -1,0 +1,7 @@
+mutation UpdatePublisher($id: ID!, $input: UpdatePublisherInput!) {
+    updatePublisher(id: $id, input: $input) {
+        id
+        name
+        description
+    }
+}

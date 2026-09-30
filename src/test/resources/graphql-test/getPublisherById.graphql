@@ -1,0 +1,7 @@
+query getPublisherById($id: ID!) {
+    getPublisherById(id: $id) {
+        id
+        name
+        description
+    }
+}

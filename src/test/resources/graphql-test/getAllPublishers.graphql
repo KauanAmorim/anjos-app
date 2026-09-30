@@ -1,0 +1,7 @@
+query getAllPublishers {
+    getAllPublishers {
+        id
+        name
+        description
+    }
+}
