@@ -1,0 +1,8 @@
+# A query espera receber uma variável chamada $input
+mutation CreatePublisher($input: CreatePublisherInput!) {
+    createPublisher(input: $input) {
+        id
+        name
+        description
+    }
+}

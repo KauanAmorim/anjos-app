@@ -1,2 +1,4 @@
 # anjos-app
-Um desafio.
+
+Um projeto CRUD simples, feito de ponta a ponta.
+
