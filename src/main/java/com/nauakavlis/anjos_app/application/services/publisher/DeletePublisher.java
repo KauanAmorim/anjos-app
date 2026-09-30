@@ -1,7 +1,7 @@
 package com.nauakavlis.anjos_app.application.services.publisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.DeletePublisher.DeletePublisherUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.out.PublisherRepository;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.DeletePublisher.DeletePublisherUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.output.PublisherRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

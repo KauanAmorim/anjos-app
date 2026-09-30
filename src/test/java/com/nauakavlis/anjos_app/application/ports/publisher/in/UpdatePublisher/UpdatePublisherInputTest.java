@@ -1,6 +1,6 @@
-package com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher;
+package com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherInput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherInput;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;

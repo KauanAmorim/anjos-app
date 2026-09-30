@@ -1,7 +1,7 @@
 package com.nauakavlis.anjos_app.application.services.publisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetAllPublishers.GetAllPublishersOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.out.PublisherRepository;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetAllPublishers.GetAllPublishersOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.output.PublisherRepository;
 import com.nauakavlis.anjos_app.domain.model.Publisher;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

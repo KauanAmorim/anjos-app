@@ -1,4 +1,4 @@
-package com.nauakavlis.anjos_app.application.ports.publisher.in.GetPublisherBooks;
+package com.nauakavlis.anjos_app.application.ports.publisher.input.GetPublisherBooks;
 
 import java.util.List;
 

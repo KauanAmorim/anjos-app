@@ -1,9 +1,9 @@
 package com.nauakavlis.anjos_app.application.services.publisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherInput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.out.PublisherRepository;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherInput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.output.PublisherRepository;
 import com.nauakavlis.anjos_app.domain.model.Publisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

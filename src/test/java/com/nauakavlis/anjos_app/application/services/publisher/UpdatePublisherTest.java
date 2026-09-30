@@ -1,8 +1,8 @@
 package com.nauakavlis.anjos_app.application.services.publisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher.UpdatePublisherInput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher.UpdatePublisherOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.out.PublisherRepository;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher.UpdatePublisherInput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher.UpdatePublisherOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.output.PublisherRepository;
 import com.nauakavlis.anjos_app.domain.exception.publisher.PublisherNotFoundException;
 import com.nauakavlis.anjos_app.domain.model.Publisher;
 import org.junit.jupiter.api.DisplayName;

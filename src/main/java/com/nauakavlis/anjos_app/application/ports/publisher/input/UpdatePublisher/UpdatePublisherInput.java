@@ -1,4 +1,4 @@
-package com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher;
+package com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

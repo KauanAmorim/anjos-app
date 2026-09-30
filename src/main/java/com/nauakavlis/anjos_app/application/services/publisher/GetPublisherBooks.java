@@ -1,7 +1,7 @@
 package com.nauakavlis.anjos_app.application.services.publisher;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetPublisherBooks.GetPublisherBooksOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetPublisherBooks.GetPublisherBooksUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetPublisherBooks.GetPublisherBooksOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetPublisherBooks.GetPublisherBooksUseCase;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

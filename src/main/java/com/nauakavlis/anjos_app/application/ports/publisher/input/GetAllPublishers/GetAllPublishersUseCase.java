@@ -1,4 +1,4 @@
-package com.nauakavlis.anjos_app.application.ports.publisher.in.GetAllPublishers;
+package com.nauakavlis.anjos_app.application.ports.publisher.input.GetAllPublishers;
 
 import java.util.List;
 

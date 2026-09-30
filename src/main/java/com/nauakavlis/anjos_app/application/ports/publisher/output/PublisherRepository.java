@@ -1,4 +1,4 @@
-package com.nauakavlis.anjos_app.application.ports.publisher.out;
+package com.nauakavlis.anjos_app.application.ports.publisher.output;
 
 import com.nauakavlis.anjos_app.domain.model.Author;
 import com.nauakavlis.anjos_app.domain.model.Book;

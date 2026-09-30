@@ -1,6 +1,6 @@
 package com.nauakavlis.anjos_app.infrastructure.adapters.publisher.out;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.out.PublisherRepository;
+import com.nauakavlis.anjos_app.application.ports.publisher.output.PublisherRepository;
 import com.nauakavlis.anjos_app.domain.model.Author;
 import com.nauakavlis.anjos_app.domain.model.Book;
 import com.nauakavlis.anjos_app.domain.model.Publisher;

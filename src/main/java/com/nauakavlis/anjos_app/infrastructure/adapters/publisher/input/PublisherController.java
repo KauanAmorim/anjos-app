@@ -2,14 +2,14 @@ package com.nauakavlis.anjos_app.infrastructure.adapters.publisher.in;
 
 import java.util.List;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherInput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.CreatePublisher.CreatePublisherUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.DeletePublisher.DeletePublisherUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetPublisherById.GetPublisherByIdUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher.UpdatePublisherInput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher.UpdatePublisherOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.UpdatePublisher.UpdatePublisherUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherInput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.CreatePublisher.CreatePublisherUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.DeletePublisher.DeletePublisherUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetPublisherById.GetPublisherByIdUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher.UpdatePublisherInput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher.UpdatePublisherOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.UpdatePublisher.UpdatePublisherUseCase;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -17,9 +17,9 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetAllPublishers.GetAllPublishersOutput;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetAllPublishers.GetAllPublishersUseCase;
-import com.nauakavlis.anjos_app.application.ports.publisher.in.GetPublisherById.GetPublisherByIdOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetAllPublishers.GetAllPublishersOutput;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetAllPublishers.GetAllPublishersUseCase;
+import com.nauakavlis.anjos_app.application.ports.publisher.input.GetPublisherById.GetPublisherByIdOutput;
 
 @Controller
 @RequiredArgsConstructor
